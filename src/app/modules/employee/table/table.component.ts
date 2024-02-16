@@ -14,8 +14,17 @@ export class TableComponent {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getData().subscribe((response) => {
-      this.workers = this.apiService.getTotalHoursWorkers(response);
-    });
+    if (localStorage.getItem("employeeHours") !== null) {
+      let storedData = localStorage.getItem("employeeHours");
+      if (typeof storedData === 'string') {
+        this.workers = JSON.parse(storedData);
+      } 
+    }
+    else{
+      this.apiService.getData().subscribe((response) => {
+        this.workers = this.apiService.getTotalHoursWorkers(response);
+        localStorage.setItem("employeeHours", JSON.stringify(this.workers));
+      });
+    }
   }
 }
