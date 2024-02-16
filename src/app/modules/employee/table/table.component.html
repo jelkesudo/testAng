@@ -1,0 +1,22 @@
+<div *ngIf="workers.length > 0; else noData">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Total time in month</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let w of workers">
+                <tr [ngClass]="{'redTable': w.status}">
+                    <td>{{ w.name }}</td>
+                    <td>{{ w.workingHours }}</td>
+                    <td><a href="#">Edit</a></td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noData>
+    <p>No data available.</p>
+</ng-template>

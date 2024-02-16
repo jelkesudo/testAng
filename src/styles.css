@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+table{
+    margin: 20px;
+    border-collapse: collapse;
+    border: 2px solid rgba(10, 10, 10, 0.3);
+}
+table tr{
+    text-align: center;
+}
+table tr th:first-child, table tr td:first-child{
+    text-align: left;
+}
+th, td{
+    padding: 10px 10px;
+}
+th{
+    background-color: rgb(192, 192, 192);
+}
+.redTable{
+    background-color: rgb(233, 110, 110);
+}
